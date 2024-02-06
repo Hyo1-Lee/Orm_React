@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+        /* 글꼴 지정 */
+        body{
+            font-family: 'Black Han Sans', 'Times New Roman', sans-serif;
+            font-size:10px
+        }
+
+        div {
+            width: 22%;
+            float: left;
+            margin: 10px;
+            border: 1px solid #000;
+        }
+
+        /* div 태그 내에 첫번째로 오는 자식 요소 중 h6 태그의 스타일 적용 */
+        div:nth-child(1)>h6 {
+            text-align: center;
+        }
+
+        div:nth-child(2)>h6 {
+            text-align: right;
+        }
+
+        div:nth-child(3)>h6 {
+            text-align: left;
+        }
+
+        /* justify - 양쪽을 기준으로 늘리고 나머지 공간 중앙 정렬 */
+        div:nth-child(4)>h6 {
+            text-align: justify;
+        }
+    </style>
+
+</head>
+
+<!-- <body>
+    <h1>스타일 기본 속성 - 글자 텍스트 속성</h1>
+
+    <h2>텍스트 색상 지정하기</h2>
+    <h2 style="background-color: rgb(255,0,0);">rgb(255,0,0) 방식 색상 지정</h2>
+    <h2 style="background-color: red;">color 명칭 기반 색상 지정</h2>
+    <h2 style="background-color: #ff0000;">Hexadecimal을 이용한 색상 지정</h2>
+
+    <h2 style="color: rgb(255,0,0);">rgb(255,0,0) 방식 색상 지정</h2>
+    <h2 style="color: red;">color 명칭 기반 색상 지정</h2>
+    <h2 style="color: #ff0000;">Hexadecimal을 이용한 색상 지정</h2>
+
+    <h2>텍스트 정렬 처리하기</h2> -->
+
+    <div>
+        <p>center-중앙 정렬</p>
+        <h6>
+            Police said Tuesday they had found that a man who pretended to be a passenger of a mystery friend who had
+            run away after hitting a parked bus had in fact caused the accident while driving under the influence of
+            alcohol.
+        </h6>
+    </div>
+    <div>
+        <p>left-왼쪽 정렬</p>
+        <h6>
+            Police said Tuesday they had found that a man who pretended to be a passenger of a mystery friend who
+            had run away after hitting a parked bus had in fact caused the accident while driving under the influence of
+            alcohol.
+        </h6>
+    </div>
+
+    <div>
+        <p>right-오른쪽 정렬</p>
+        <h6>
+            Police said Tuesday they had found that a man who pretended to be a passenger of a mystery friend who
+            had run away after hitting a parked bus had in fact caused the accident while driving under the influence of
+            alcohol.
+        </h6>
+    </div>
+    <div>
+        <p>justify-양쪽 정렬</p>
+        <h6>
+            Police said Tuesday they had found that a man who pretended to be a passenger of a mystery friend
+            who had run away after hitting a parked bus had in fact caused the accident while driving under the
+            influence of alcohol.
+        </h6>
+    </div>
+
+
+    <hr>
+    <h1>텍스트 꾸미기 실습</h1>
+    <h1 style="text-decoration: overline;">Overline</h1>
+    <h1 style="text-decoration: line-through">Line-Through</h1>
+    <h1 style="text-decoration: underline;">Under Line</h1>
+    <h1 style="text-decoration: initial;">Initial</h1>
+    <h1 style="text-decoration: none;">None</h1>
+
+    <hr>
+    <h1>글꼴 속성 처리하기</h1>
+    <h2>한글 글꼴 사용하기</h2>
+
+    <hr>
+    <h1>글꼴 크기 지정하기</h1>
+    <p>기본 폰트 사이즈</p>
+    <p style="font-size:small">글꼴 크기 테스트1</p>
+    <p style="font-size:50px">글꼴 크기 테스트2</p>
+    <p style="font-size:150%">글꼴 크기 테스트3</p>
+    <p style="font-size:1.5em">글꼴 크기 테스트4</p>
+
+
+</body>
+
+</html>
