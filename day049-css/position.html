@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main {
+            position:relative;
+            width: 500px;
+            height: 600px;
+            background-color: #f0f0f0;
+        }
+
+        div {
+            width: 300px;
+            height: 150px;
+            border: 1px solid #000;
+            background-color: #999999;
+            text-align: center;
+            line-height: 100px;
+            box-sizing: border-box;
+        }
+
+        /* div:nth-of-type(2){
+            position:static;
+            background-color: brown;
+            opacity: 0.5;
+        } */
+
+        /* 특정 요소의 오리지널 위치에서 relative 설정으로 위치 이동처리 */
+        /* div:nth-of-type(2){
+            position:relative;
+            top:30px;
+            left: 30px;
+            background-color: brown;
+            opacity: 0.5;
+        } */
+
+        /* 부모 요소 중 static이 아닌 부모요소의 위치 값을 기준으로 이동시키는 absolute */
+        /* div:nth-of-type(2){
+            position:absolute;
+            bottom:50px;
+            right:300px;
+            background-color: brown;
+            opacity: 0.5;
+        } */
+
+        /* 원하는 위치에 항상 고정시키고자 할 때 부모나 자신의 위치와 상관 없이 */
+        /* 주로 배너광고, 채팅팝업, 레이어 위치 표시 등 */
+        div:nth-of-type(2){
+            position:fixed;
+            bottom:5px;
+            right:3px;
+            background-color: brown;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div>상단 영역</div>
+        <div>중간 영역</div>
+        <div>하단 영역</div>
+    </main>
+</body>
+</html>

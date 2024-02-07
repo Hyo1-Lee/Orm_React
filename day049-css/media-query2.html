@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: url(./_MG_8752.JPG) no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        @media screen and (max-width:1024px){
+            body{
+                background: url(http://via.placeholder.com/1024x800) no-repeat center center fixed;
+                background-size: cover;
+            }
+        }
+
+        @media screen and (max-width:768px){
+            body{
+                background: url(http://via.placeholder.com/768x800) no-repeat center center fixed;
+                background-size: cover;
+            }
+        }
+
+        /* 모바일 가로방향 */
+        @media screen and (max-width:320px) and (orientation:landscape){
+            body{
+                background: url(http://via.placeholder.com/800x600) no-repeat center center fixed;
+                background-size: cover;
+            }
+        }
+
+        /* 모바일 세로방향 */
+        @media screen and (max-width:320px) and (orientation:portrait){
+            body{
+                background: url(http://via.placeholder.com/400x600) no-repeat center center fixed;
+                background-size: cover;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>미디어 쿼리 기반 - 배경 이미지 바꿔보기</h1>
+
+
+
+
+
+</body>
+</html>
