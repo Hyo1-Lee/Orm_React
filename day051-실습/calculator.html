@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator {
+            width: 200px;
+            border-radius: 10px;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .calculator-screen {
+            width: 190px;
+            height: 50px;
+            border: none;
+            border-radius: 5px;
+            text-align: right;
+            padding-right: 10px;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .calculator-keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .calculator-key {
+            background-color: #e0e0e0;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .calculator-key.operator {
+            background-color: #fe9234;
+            color: white;
+        }
+
+        .calculator-key.double {
+            grid-column: span 2;
+        }
+
+        .calculator-key:active {
+            animation: click-animation 0.1s ease;
+            background-color: #d1d1d1;
+        }
+
+        @keyframes click-animation {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(0.8);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" class="calculator-screen" value="0" />
+        <div class="calculator-keys">
+            <button class="calculator-key">C</button>
+            <button class="calculator-key">%</button>
+            <button class="calculator-key">/</button>
+            <button class="calculator-key operator">x</button>
+            <button class="calculator-key">7</button>
+            <button class="calculator-key">8</button>
+            <button class="calculator-key">9</button>
+            <button class="calculator-key operator">-</button>
+            <button class="calculator-key">4</button>
+            <button class="calculator-key">5</button>
+            <button class="calculator-key">6</button>
+            <button class="calculator-key operator">+</button>
+            <button class="calculator-key">1</button>
+            <button class="calculator-key">2</button>
+            <button class="calculator-key">3</button>
+            <button class="calculator-key operator" style="grid-row: span 2;">=</button>
+            <button class="calculator-key double">0</button>
+            <button class="calculator-key">.</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        var result = 0;
+        $(document).ready(function () {
+        })
+
+        $(".calculator-key").click(function () {
+            var keyValue = $(this).text();
+            var screenValue = $(".calculator-screen").val();
+            if (keyValue == "C") {
+                $(".calculator-screen").val("0");
+            }
+            else if (screenValue == "0") {
+                $(".calculator-screen").val(keyValue);
+            }
+            // cast keyvalue to integer type
+
+
+            
+            else if (keyValue == "=" || keyValue == "%") {
+                switch (keyValue) {
+                    case "=":
+                        $(".calculator-screen").val(eval(screenValue));
+                        break;
+                    case "%":
+                        $(".calculator-screen").val(screenValue / 100);
+                        break;
+                    default:
+                        $(".calculator-screen").val(screenValue + keyValue);
+                        break;
+                }
+            }
+            else if (keyValue == "x") {
+                $(".calculator-screen").val(screenValue + "*");
+            }
+            else {
+                $(".calculator-screen").val(screenValue + keyValue);
+            }
+        });
+
+        // when keyborad key is pressed check if it is a number or an operator
+        $(document).keypress(function (e) {
+            if (e.key >= 0 && e.key <= 9) {
+                var screenValue = $(".calculator-screen").val();
+                if (screenValue == "0") {
+                    $(".calculator-screen").val(e.key);
+                }
+                else {
+                    $(".calculator-screen").val(screenValue + e.key);
+                }
+            }
+            else if (e.key == "+" || e.key == "-" || e.key == "*" || e.key == "/") {
+                var screenValue = $(".calculator-screen").val();
+                if (screenValue != "0") {
+                    $(".calculator-screen").val(screenValue + e.key);
+                }
+            }
+            else if (e.key == "=" || e.key == "Enter") {
+                $(".calculator-screen").val(eval($(".calculator-screen").val()));
+            }
+            else if (e.key == "%") {
+                $(".calculator-screen").val($(".calculator-screen").val() / 100);
+            }
+            else if (e.key == "c" || e.key == "C") {
+                $(".calculator-screen").val("0");
+            }
+
+            e.preventDefault();
+        });
+    </script>
+
+</body>
+
+</html>

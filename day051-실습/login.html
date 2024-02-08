@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'NanumGothicExtraBold', 'Times New Roman', sans-serif;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .loginForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 20rem;
+            padding: 2rem;
+            border: 1px solid #E9ECEF;
+            background-color: #F5F6F7;
+        }
+
+        .main h1 {
+            color: #00C850;
+            font-weight: bolder;
+            font-size: 3.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .input-id,
+        .input-pwd {
+            width: 300px;
+            height: 20px;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #E9ECEF;
+            border-radius: 2px;
+            font-size: 0.9rem;
+            font-family: 'NanumGothicExtraBold';
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #E9ECEF;
+            border-radius: 2px;
+            font-size: 0.8rem;
+            background-color: #00C850;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.3rem;
+            font-family: 'NanumGothicExtraBold';
+        }
+
+        .loginForm div a {
+            font-size: 0.8rem;
+            color: #00C850;
+            text-decoration: none;
+            font-size:0.9rem;
+        }
+
+        .alert-id,
+        .alert-pwd {
+            font-size: 0.8rem;
+            color: red;
+            text-decoration: none;
+            margin: none;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="main">
+        <form class="loginForm">
+            <h1>NAVER</h1>
+            <div>
+                <input class="input-id" type="text" name="id" placeholder="아이디">
+                <p class="alert-id"></p>
+            </div>
+            <div>
+                <input class="input-pwd" type="password" name="pw" placeholder="비밀번호">
+                <p class="alert-pwd" style="display:none;"></p>
+            </div>
+            <button class="btn-submit" type="submit">로그인</button>
+            <div>
+                <a href="#">회원가입&emsp;|</a>
+                <a href="#">&emsp;비밀번호 찾기</a>
+            </div>
+        </form>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(".btn-submit").click(function () {
+            if ($(".input-id").val() == "") {
+                $(".alert-id").html("\u2002아이디를 입력해주세요.").show();
+                $(".alert-pwd").html("").show();
+                return false;
+            }
+            else if ($(".input-pwd").val() == "") {
+                $(".alert-pwd").html("\u2002비밀번호를 입력해주세요.").show();
+                $(".alert-id").html("").show();
+                return false;
+            }
+        });
+
+    </script>
+</body>
+
+</html>
