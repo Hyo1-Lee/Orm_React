@@ -13,6 +13,10 @@ import CChild from './ClassChild';
 
 import MyProfile from './Profile';
 
+import CounterFunction from './CounterFunctionComponent';
+
+import CounterClass from './CounterClassComponent';
+
 // 함수형 컴포넌트
 // 리액트 UI 컴포넌트는 반환값으로 JSX UI 요소 정보를 반환하여 최종 웹브라우저에 UI 표현
 // JSX UI 요소를 제어하기 위해 함수 내에 기능구현 영역에서 필요한 데이터와 이벤트를 처리
@@ -54,9 +58,17 @@ function App() {
                 내 소개 페이지
             </MyProfile>
 
-            <MyProfile userId={user.userId} userName={user.userName} userEmail={user.userEmail} userPhone={user.userPhone}>
+            <MyProfile
+                userId={user.userId}
+                userName={user.userName}
+                userEmail={user.userEmail}
+                userPhone={user.userPhone}
+            >
                 내 소개 페이지
             </MyProfile>
+
+            <CounterFunction></CounterFunction>
+            <CounterClass></CounterClass>
         </div>
     );
 }
