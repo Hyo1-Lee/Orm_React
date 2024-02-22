@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
 import TodoTemplate from "./TodoTemplate";
@@ -39,17 +38,19 @@ function App() {
 		setNextId(nextId + 1);
 	};
 
-  const onRemove = (id) => {
-    setTodos(todos.filter(todo => todo.id !== id));
-  }
+	const onRemove = (id) => {
+		setTodos(todos.filter((todo) => todo.id !== id));
+	};
 
-  // 할일 선택 이벤트 처리함수 정의
-  // 선택된 할일의 checked 속성값을 반전시키는 이벤트 처리함수 정의
-  // 선택된 할일의 checked 속성값을 반전시키기 위해 map 함수를 사용하여 반복처리하고
-  // 선택된 할일의 checked 속성값을 반전시킨다.
-  const onSelect = (id) => {
-    setTodos(todos.map((todo)=> todo.id === id ? {...todo, checked: !todo.checked} : todo));
-  }
+	// 할일 선택 이벤트 처리함수 정의
+	// 선택된 할일의 checked 속성값을 반전시키는 이벤트 처리함수 정의
+	// 선택된 할일의 checked 속성값을 반전시키기 위해 map 함수를 사용하여 반복처리하고
+	// 선택된 할일의 checked 속성값을 반전시킨다.
+	const onSelect = (id) => {
+		setTodos(
+			todos.map((todo) => (todo.id === id ? { ...todo, checked: !todo.checked } : todo))
+		);
+	};
 
 	return (
 		<div className="App">

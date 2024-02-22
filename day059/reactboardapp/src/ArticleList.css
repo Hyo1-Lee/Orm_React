@@ -1,0 +1,28 @@
+/* FILEPATH: /c:/Users/gydnj/Desktop/Bootcamp/Orm_React/day059/reactboardapp/src/ArticleList.css */
+
+#article-list {
+    align-items: center;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.article-list-item {
+	margin-bottom: 20px;
+}
+
+#article-title {
+	font-size: 30px;
+	font-weight: bold;
+    align-items: center;
+}
+
+.article-author {
+	font-size: 14px;
+	color: #888;
+}
+
+.article-content {
+	margin-top: 10px;
+	font-size: 16px;
+}
