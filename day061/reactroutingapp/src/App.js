@@ -34,7 +34,6 @@ import Footer from "./components/Footer";
 
 const Main = React.lazy(() => import("./pages/Main"));
 const Company = React.lazy(() => import("./pages/Company"));
-const CompanyLocation = React.lazy(() => import("./pages/CompanyLocation"));
 const Login = React.lazy(() => import("./pages/auth/Login"));
 const Entry = React.lazy(() => import("./pages/auth/Entry"));
 const ArticleList = React.lazy(() => import("./pages/board/ArticleList"));
@@ -42,7 +41,6 @@ const ArticleRegist = React.lazy(() => import("./pages/board/ArticleRegist"));
 const ArticleDetail = React.lazy(() => import("./pages/board/ArticleDetail"));
 const Product = React.lazy(() => import("./pages/product/Product"));
 const Category = React.lazy(() => import("./pages/product/Category"));
-const NoneExistPage = React.lazy(() => import("./pages/NoneExistPage"));
 
 function App() {
   return (
@@ -67,7 +65,6 @@ function App() {
 
             {/* 회사소개 라우팅에 중첩 라우팅 구현하기  */}
             <Route path="/company" Component={Company}>
-              <Route path="location" Component={CompanyLocation} />
             </Route>
 
             <Route path="/login" Component={Login} />
@@ -81,7 +78,6 @@ function App() {
             <Route path="/product/category/:idx" Component={Category} />
 
             {/* *은 사용자가 요청한 웹페이지와 일치하지 않은 경우 보여줄 컴포넌트 지정하기 */}
-            <Route path="*" Component={NoneExistPage} />
           </Routes>
         </Suspense>
 

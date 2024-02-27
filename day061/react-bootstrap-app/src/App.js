@@ -1,37 +1,52 @@
 import React from "react";
-
-// bootstrap css 파일 직접 참조
-// import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 // Sass 파일 참조
 import "../node_modules/bootstrap/scss/bootstrap.scss";
-
-// 라우팅을 위한 react-router-dom 패키지의 BrowserRouter, Routes, Route 참조
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
 import GNB from "./components/GNB";
 import Footer from "./components/Footer";
 import Main from "./pages/Main";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import Community from "./pages/community/Community";
+import ArticleCreate from "./pages/community/ArticleCreate";
 
-function App() {
+// Create a new component that will render the footer conditionally
+function LayoutWithConditionalFooter() {
+	const location = useLocation();
+	const routeStyle = location.pathname === "/community" ? {} : { height: "100vh" };
+
 	return (
-		<Router>
-			{/* 상단 GNB 공통 레이아웃 메뉴 영역 */}
+		<>
 			<GNB />
 			<div className="App">
-				{/* 최상위 컴포넌트에 전체 어플리케이션 레이아웃 구성 */}
-				<div className="auth-wrapper">
+				<div className="auth-wrapper" style={routeStyle}>
 					<div className="auth-inner">
 						<Routes>
-							<Route path="/" Component={Main} />
-							<Route path="/signin" Component={Login} />
-							<Route path="/signup" Component={Register} />
+							{/* Use `element` instead of `Component` */}
+							<Route path="/" element={<Main />} />
+							<Route path="/signin" element={<Login />} />
+							<Route path="/signup" element={<Register />} />
+							<Route path="/community" element={<Community />} />
+							<Route path="/article/create" element={<ArticleCreate />} />
 						</Routes>
 					</div>
 				</div>
 			</div>
-			<Footer />
+			{!(
+				location.pathname === "/signin" ||
+				location.pathname === "/signup" ||
+				location.pathname === "/article/create"
+			) && <Footer />}
+		</>
+	);
+}
+
+// Your main App component now returns the Router with the new component inside
+function App() {
+	return (
+		<Router>
+			<LayoutWithConditionalFooter />
 		</Router>
 	);
 }

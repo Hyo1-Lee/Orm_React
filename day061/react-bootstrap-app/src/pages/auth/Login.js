@@ -15,10 +15,10 @@ const Login = () => {
 			password: Yup.string().required("암호를 입력해주세요."),
 		}),
 		onSubmit: (values) => {
-			var loginData = {
-				email: values.email,
-				password: values.password,
-			};
+			// var loginData = {
+			// 	email: values.email,
+			// 	password: values.password,
+			// };
 		},
 	});
 
