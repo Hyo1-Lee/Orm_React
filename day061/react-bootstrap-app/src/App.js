@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // Sass 파일 참조
 import "../node_modules/bootstrap/scss/bootstrap.scss";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
@@ -16,6 +16,32 @@ function LayoutWithConditionalFooter() {
 	const location = useLocation();
 	const routeStyle = location.pathname === "/community" ? {} : { height: "100vh" };
 
+	const [articles, setArticles] = useState([]);
+
+	const onInsert = (title, content, category, date) => {
+		setArticles(articles.concat({ id: articles.length + 1, title, content, category, date }));
+	};
+
+	const onSelect = (id) => {
+		setArticles(
+			articles.map((article) =>
+				article.id === id ? { ...article, selected: !article.selected } : article
+			)
+		);
+	};
+
+	const onDelete = () => {
+		setArticles(articles.filter((article) => !article.selected));
+	};
+
+	const onEdit = (title, content, category) => {
+		setArticles(
+			articles.map((article) =>
+				article.selected ? { ...article, title, content, category } : article
+			)
+		);
+	};
+
 	return (
 		<>
 			<GNB />
@@ -27,8 +53,8 @@ function LayoutWithConditionalFooter() {
 							<Route path="/" element={<Main />} />
 							<Route path="/signin" element={<Login />} />
 							<Route path="/signup" element={<Register />} />
-							<Route path="/community" element={<Community />} />
-							<Route path="/article/create" element={<ArticleCreate />} />
+							<Route path="/community" element={<Community onEdit={onEdit} />} />
+							<Route path="/article/create" element={<ArticleCreate onInsert={onInsert} />} />
 						</Routes>
 					</div>
 				</div>

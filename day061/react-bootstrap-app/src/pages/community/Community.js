@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 
-const Community = () => {
+const Community = (props) => {
+	
+
 	return (
 		<main className="container">
             {/* 피쳐드 게시글 */}

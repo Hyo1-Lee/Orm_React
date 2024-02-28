@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../css/ArticleCreate.css";
 
-const ArticleCreate = () => {
+const ArticleCreate = (props) => {
+	const [article, setArticle] = useState({
+		title: "",
+		content: "",
+		category: "",
+		date: "",
+	});
+
+	const onArticleChange = (e) => {
+		setArticle({ ...article, [e.target.name]: e.target.value });
+	};
+
 	const onSubmit = (e) => {
 		e.preventDefault();
 		const title = document.getElementById("title").value;
 		const contents = document.getElementById("contents").value;
+
+
+
 		console.log(title, contents);
-        window.location.href = "/community";
+		window.location.href = "/community";
 	};
 
 	return (
@@ -31,7 +45,7 @@ const ArticleCreate = () => {
 					</form>
 				</div>
 			</div>
-            <hr />
+			<hr />
 			<form onSubmit={onSubmit}>
 				<div class="form-group">
 					<input
@@ -39,9 +53,10 @@ const ArticleCreate = () => {
 						class="form-control"
 						id="title"
 						placeholder="제목을 입력해 주세요."
+						onChange={onArticleChange}
 					/>
 				</div>
-                <hr />
+				<hr />
 				<div class="form-group">
 					<textarea
 						class="form-control"
@@ -50,13 +65,12 @@ const ArticleCreate = () => {
 						placeholder="내용을 입력해 주세요."
 					></textarea>
 				</div>
-                <button type="submit" className="btn btn-primary" id="btn-submit">
+				<button type="submit" className="btn btn-primary" id="btn-submit">
 					발생신청
 				</button>
-                <button type="button" className="btn btn-secondary" id="btn-submit">
+				<button type="button" className="btn btn-secondary" id="btn-submit">
 					임시저장
 				</button>
-				
 			</form>
 		</div>
 	);
