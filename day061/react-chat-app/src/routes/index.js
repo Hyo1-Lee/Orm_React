@@ -10,8 +10,8 @@ import { Routes as SwitchRoute, Route, Navigate } from "react-router-dom";
 
 import { authProtectedRoutes, publicRoutes } from "./routes";
 
-import NonAuthLayout from "../layouts/NonAuth";
-import AuthLayout from "../layouts/Auth";
+import NonAuthLayout from "../layouts/NonAuthLayout";
+import AuthLayout from "../layouts/AuthLayout";
 
 // 라우팅 규칙을 정의하는 함수
 const AuthProtected = (props) => {

@@ -1,14 +1,9 @@
-import './App.css';
+import React from "react";
 
-import GNB from './components/GNB';
-import Footer from './components/Footer';
+import Routes from "./routes";
+import "./assets/scss/themes.scss";
 
 function App() {
-  return (
-    <div className="App">
-      
-    </div>
-  );
+	return <Routes />;
 }
-
 export default App;
