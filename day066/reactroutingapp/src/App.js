@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 //컴포넌트 참조하기-기본방식
 import TopMenu from "./components/TopMenu";
 import Footer from "./components/Footer";
+import "./assets/scss/themes.scss";
 
 //각종 페이지 컴포넌트를 참조한다.
 //일반적인 컴포넌트 참조방식은 최초 로딩시 성능저하 그리고 컴포넌트 렌더링시 대체 효과등을 주기가 어렵다
@@ -34,8 +35,8 @@ import Footer from "./components/Footer";
 
 const Main = React.lazy(() => import("./pages/Main"));
 const Company = React.lazy(() => import("./pages/Company"));
-const Login = React.lazy(() => import("./pages/auth/Login"));
-const Entry = React.lazy(() => import("./pages/auth/Entry"));
+const Login = React.lazy(() => import("./pages/Auth/Login"));
+const Entry = React.lazy(() => import("./pages/Auth/Register"));
 const ArticleList = React.lazy(() => import("./pages/board/ArticleList"));
 const ArticleRegist = React.lazy(() => import("./pages/board/ArticleRegist"));
 const ArticleDetail = React.lazy(() => import("./pages/board/ArticleDetail"));

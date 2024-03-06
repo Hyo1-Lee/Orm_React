@@ -11,7 +11,7 @@ const ArticleList = () => {
 			.get("http://localhost:3005/api/articles")
 			.then((response) => {
 				console.log(response.data);
-				setArticleList(response.data);
+				setArticleList(response.data.data);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -45,17 +45,17 @@ const ArticleList = () => {
 				<tbody>
 					{articleList.map((article, index) => (
 						<tr key={index}>
-							<td>{article.articleNo}</td>
+							<td>{article.article_id}</td>
 							<td>
-								<Link to={{ pathname: `/article/modify/${article.articleNo}` }}>
+								<Link to={{ pathname: `/article/modify/${article.article_id}` }}>
 									{article.title}
 								</Link>
 							</td>
-							<td>{article.hitCnt}</td>
-							<td>{article.ip}</td>
-							<td>{article.useYn}</td>
-							<td>{article.regDate}</td>
-							<td>{article.regId}</td>
+							<td>{article.view_count}</td>
+							<td>{article.ip_address}</td>
+							<td>{article.is_display_code}</td>
+							<td>{article.reg_date}</td>
+							<td>{article.reg_member_id}</td>
 						</tr>
 					))}
 				</tbody>
