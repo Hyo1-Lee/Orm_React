@@ -8,3 +8,5 @@ export const USER_LOGIN = "USER_LOGIN";
 
 // 사용자 테마 색상 변경 시 전역 데이터로 현재 적용된 테마 색상 관리
 export const THEME_COLOR = "THEME_COLOR";
+
+export const API_FAILED = "API_FAILED";

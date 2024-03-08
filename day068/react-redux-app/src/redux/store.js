@@ -1,15 +1,20 @@
-// store 구성을 위한 추가 패키지 설치
-// yarn add @reduxjs/toolkit -D
-// redux 기반 store 환경을 쉽게 구성해주기 위한 추가 패키지 설치 필요
-
-// @reduxjs/toolkit 패키지에서 제공하는 configureStore 함수를 사용하여 store를 구성
-import { configureStore } from "@reduxjs/toolkit";
+//Saga환경을 지원하는 store구성 방식
+import { createStore, applyMiddleware, compose } from "redux";
+import createSagaMiddleware from "redux-saga";
 import reducers from "./reducers";
+import sagas from "./sagas";
 
-const store = configureStore({
-	reducer: reducers,
-	// devTools: process.env.NODE_ENV !== "production",
-	devTools: true,
-});
+const sagaMiddleware = createSagaMiddleware();
+const middlewares = [sagaMiddleware];
 
-export default store;
+export function configureStore(initialState) {
+	const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+	const store = createStore(
+		reducers,
+		initialState,
+		composeEnhancers(applyMiddleware(...middlewares))
+	);
+	sagaMiddleware.run(sagas);
+	return store;
+}
