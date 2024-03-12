@@ -54,16 +54,13 @@ const Profile = (props) => {
 	return (
 		<React.Fragment>
 			<div>
-				<div className="px-4 pt-4">
-					<div className="user-chat-nav float-end">
+				<div className='px-4 pt-4'>
+					<div className='user-chat-nav float-end'>
 						<Dropdown isOpen={dropdownOpen} toggle={toggle}>
-							<DropdownToggle
-								tag="a"
-								className="font-size-18 text-muted dropdown-toggle"
-							>
-								<i className="ri-more-2-fill"></i>
+							<DropdownToggle tag='a' className='font-size-18 text-muted dropdown-toggle'>
+								<i className='ri-more-2-fill'></i>
 							</DropdownToggle>
-							<DropdownMenu className="dropdown-menu-end">
+							<DropdownMenu className='dropdown-menu-end'>
 								<DropdownItem>Edit</DropdownItem>
 								<DropdownItem>Action</DropdownItem>
 								<DropdownItem divider />
@@ -71,66 +68,56 @@ const Profile = (props) => {
 							</DropdownMenu>
 						</Dropdown>
 					</div>
-					<h4 className="mb-0">My Profile</h4>
+					<h4 className='mb-0'>My Profile</h4>
 				</div>
 
-				<div className="text-center p-4 border-bottom">
-					<div className="mb-4">
-						<img
-							src={user.profile_img_path}
-							className="rounded-circle avatar-lg img-thumbnail"
-							alt="chatvia"
-						/>
+				<div className='text-center p-4 border-bottom'>
+					<div className='mb-4'>
+						<img src={user.profile_img_path} className='rounded-circle avatar-lg img-thumbnail' alt='chatvia' />
 					</div>
 
-					<h5 className="font-size-16 mb-1 text-truncate">{user.name}</h5>
-					<p className="text-muted text-truncate mb-1">
-						<i className="ri-record-circle-fill font-size-10 text-success me-1 d-inline-block"></i>{" "}
-						Active
+					<h5 className='font-size-16 mb-1 text-truncate'>{user.name}</h5>
+					<p className='text-muted text-truncate mb-1'>
+						<i className='ri-record-circle-fill font-size-10 text-success me-1 d-inline-block'></i> Active
 					</p>
 				</div>
 				{/* End profile user  */}
 
 				{/* Start user-profile-desc */}
-				<div className="p-4 user-profile-desc">
-					<div className="text-muted">
-						<p className="mb-4">
-							If several languages coalesce, the grammar of the resulting language is
-							more simple and regular than that of the individual.
+				<div className='p-4 user-profile-desc'>
+					<div className='text-muted'>
+						<p className='mb-4'>
+							If several languages coalesce, the grammar of the resulting language is more simple and regular than that
+							of the individual.
 						</p>
 					</div>
 
-					<div id="profile-user-accordion-1" className="custom-accordion">
-						<Card className="shadow-none border mb-2">
+					<div id='profile-user-accordion-1' className='custom-accordion'>
+						<Card className='shadow-none border mb-2'>
 							{/* import collaps */}
 							<CustomCollapse
-								title="About"
-								iconClass="ri-user-2-line"
+								title='About'
+								iconClass='ri-user-2-line'
 								isOpen={isOpen1}
-								toggleCollapse={toggleCollapse1}
-							>
+								toggleCollapse={toggleCollapse1}>
 								<div>
-									<p className="text-muted mb-1">Name</p>
-									<h5 className="font-size-14">{user.name}</h5>
+									<p className='text-muted mb-1'>Name</p>
+									<h5 className='font-size-14'>{user.name}</h5>
 								</div>
 
-								<div className="mt-4">
-									<p className="text-muted mb-1">Email</p>
-									<h5 className="font-size-14">{user.email}</h5>
+								<div className='mt-4'>
+									<p className='text-muted mb-1'>Email</p>
+									<h5 className='font-size-14'>{user.email}</h5>
 								</div>
 
-								<div className="mt-4">
-									<p className="text-muted mb-1">Time</p>
-									<h5 className="font-size-14">
-										{user.edit_date
-											? moment(user.edit_date).format("YYYY-MM-DD")
-											: ""}
-									</h5>
+								<div className='mt-4'>
+									<p className='text-muted mb-1'>Time</p>
+									<h5 className='font-size-14'>{user.edit_date ? moment(user.edit_date).format("YYYY-MM-DD") : ""}</h5>
 								</div>
 
-								<div className="mt-4">
-									<p className="text-muted mb-1">Location</p>
-									<h5 className="font-size-14 mb-0">California, USA</h5>
+								<div className='mt-4'>
+									<p className='text-muted mb-1'>Location</p>
+									<h5 className='font-size-14 mb-0'>California, USA</h5>
 								</div>
 							</CustomCollapse>
 						</Card>

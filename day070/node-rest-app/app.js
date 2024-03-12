@@ -20,6 +20,7 @@ var articleAPIRouter = require("./routes/articleAPI");
 
 //회원정보 데이터 처리 전용 RESTAPI 라우터 참조
 var memberAPIRouter = require("./routes/memberAPI");
+var chatAPIRouter = require("./routes/chatAPI");
 
 var app = express();
 
@@ -47,6 +48,7 @@ app.use("/api", articleAPIRouter);
 //회원정보처리 전용 RESTAPI라우터의 기본호출주소 체계 정의
 //http://localhost:3005/api/member
 app.use("/api/member", memberAPIRouter);
+app.use("/api/chat", chatAPIRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
